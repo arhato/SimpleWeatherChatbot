@@ -1,4 +1,3 @@
-package org.example;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -6,30 +5,40 @@ import org.json.simple.parser.JSONParser;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Main {
+public class weatherAPIModule {
     public static void main(String[] args) {
-//        https://api.openweathermap.org/data/2.5/weather?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric
+        //https://api.openweathermap.org/data/2.5/weather?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric
+
+        // The user is asked to enter the city and country they want to see the weather for
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter a city: ");
         String city = scanner.nextLine();
+        city = city.replaceAll("\\s+ ", "");
         System.out.println("Enter a country: ");
         String country = scanner.nextLine();
-        System.out.println("Enter which day you want to see the weather for: ");
-        System.out.println("0. Today");
-        System.out.println("1. Tomorrow");
-        System.out.println("2. The day after tomorrow");
-        System.out.println("3. The day after that");
-        System.out.println("4. The day after that and so on...");
-        int days = scanner.nextInt();
+        country = country.replaceAll("\\s+ ", "");
 
+        //This part will be implemented on the next version
+        //The user will be able to see the weather for the next 5 days
+
+//        System.out.println("Enter which day you want to see the weather for: ");
+//        System.out.println("0. Today");
+//        System.out.println("1. Tomorrow");
+//        System.out.println("2. The day after tomorrow");
+//        System.out.println("3. The day after that");
+//        System.out.println("4. The day after that and so on...");
+//        int days = scanner.nextInt();
+
+        // This try catch block is used to catch any exceptions that may occur
+        // All the necessary methods are called in this block
+        // User input is also taken in this block in a loop until they decide to exit
 
         try {
-            URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "," + country + "&appid=0219cd5cd854de517fe7720f70c8da25&units=metric&cnt=" + days);
+            URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "," + country + "&appid=0219cd5cd854de517fe7720f70c8da25&units=metric&cnt=" + 10);
             int responseCode = establishConnection(url);
 
             JSONArray list = (JSONArray) (getData(url, responseCode).get("list"));
@@ -37,11 +46,11 @@ public class Main {
             System.out.println("Select what you want to see: ");
             while (true) {
                 System.out.print("1. Temperature \t");
-                System.out.print("2. Humidity and Pressure \t");
+                System.out.print("2. Humidity \t");
                 System.out.print("3. Weather \t");
                 System.out.println("4. Wind \t");
                 System.out.print("5. Cloud and Visibility \t");
-                System.out.print("6. Sea Level \t");
+                System.out.print("6. Pressure  \t");
                 System.out.println("7. Sunrise and Sunset \t");
                 System.out.print("8. Recorded Time \t");
                 System.out.println("9. Exit");
@@ -56,6 +65,10 @@ public class Main {
         }
     }
 
+    // This method is used to establish a connection with the API
+    // The URL is passed as a parameter
+    // The method then establishes a connection with the API and returns the response code
+
     public static int establishConnection(URL url) throws Exception {
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -65,8 +78,11 @@ public class Main {
         return connection.getResponseCode();
     }
 
+    // This method is used to get the JSON data from the API
+    // The URL is passed as a parameter
+    // The method then gets the JSON data from the API and returns it as a JSONObject
+
     public static JSONObject getData(URL url, int responseCode) throws Exception {
-        System.out.println(responseCode);
         if (responseCode != 200) {
             throw new RuntimeException("HttpResponseCode: " + responseCode);
         } else {
@@ -84,11 +100,15 @@ public class Main {
             Object obj = parse.parse(String.valueOf(info));
             JSONArray data = new JSONArray();
             data.add(obj);
-            System.out.println(data.get(0));
 
             return (JSONObject) data.get(0);
         }
     }
+
+    // This method is used to call the required methods based on the user input
+    // The user input is passed as a parameter.
+    // The method then calls the required method based on the user input
+    // The method also handles any exceptions that may occur
 
     public static void giveWeather(JSONArray list, JSONObject data, int input) {
         try {
@@ -102,7 +122,6 @@ public class Main {
                 }
                 case 2 -> {
                     getHumidity(0, list);
-                    getPressure(0, list);
                     System.out.println();
                 }
                 case 3 -> {
@@ -123,8 +142,7 @@ public class Main {
 
 
                 case 6 -> {
-                    getSeaLevel(0, list);
-                    getGroundLevel(0, list);
+                    getPressure(0, list);
                     System.out.println();
                 }
                 case 7 -> {
@@ -144,6 +162,9 @@ public class Main {
         }
     }
 
+    // Getters; the JSON data is parsed and the required data is extracted and printed
+    // The data is extracted from the JSON file using the indexs of the JSON objects and arrays
+    // The data is then printed
     public static void getTemp(int day, JSONArray list) {
         JSONObject index = (JSONObject) list.get(day);
         JSONObject main = (JSONObject) index.get("main");
@@ -172,18 +193,6 @@ public class Main {
         JSONObject index = (JSONObject) list.get(day);
         JSONObject main = (JSONObject) index.get("main");
         System.out.println("Pressure: " + main.get("pressure") + " hPa");
-    }
-
-    public static void getSeaLevel(int day, JSONArray list) {
-        JSONObject index = (JSONObject) list.get(day);
-        JSONObject main = (JSONObject) index.get("main");
-        System.out.println("Sea Level: " + main.get("sea_level") + " m");
-    }
-
-    public static void getGroundLevel(int day, JSONArray list) {
-        JSONObject index = (JSONObject) list.get(day);
-        JSONObject main = (JSONObject) index.get("main");
-        System.out.println("Ground Level: " + main.get("grnd_level") + " m");
     }
 
     public static void getHumidity(int day, JSONArray list) {
@@ -231,13 +240,13 @@ public class Main {
 
     public static void getSunRise(JSONObject data) {
         JSONObject city = (JSONObject) data.get("city");
-        Date date = new Date((long) city.get("sunrise")*1000);
+        Date date = new Date((long) city.get("sunrise") * 1000);
         System.out.println("Sunrise: " + date);
     }
 
     public static void getSunSet(JSONObject data) {
         JSONObject city = (JSONObject) data.get("city");
-        Date date = new Date((long) city.get("sunset")*1000);
+        Date date = new Date((long) city.get("sunset") * 1000);
         System.out.println("Sunset: " + date);
     }
 
