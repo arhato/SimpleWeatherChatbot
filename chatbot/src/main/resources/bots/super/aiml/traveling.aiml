@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+<category>
+  <pattern>HI</pattern>
+  <template><random>
+    <li>Hello! How may I help you today?</li>
+	  <li>Hello, where are you off to today</li>
+    <li>Hello, there</li>
+  </random></template>
+  </category>
+  <category>
+    <pattern>I am planning a trip for the next * days</pattern>
+    <template>
+        <think><set name = "noOfDays"><star/></set></think>
+	      where would you like to go in those days
+    </template>
+  </category>
+  <category>
+    <pattern>I am planning to go to *</pattern>
+    <pattern>PLAN A TRIP TO *</pattern>
+    <template>
+      <think><set name="destination"><star /></set></think>
+      <set name="duration"> </set>
+      <set name="day"></set>
+      Great, you want to plan a trip to <get name="destination" />. Would you kindly help with some details?
+      How many days are you planning to go for?
+    </template>
+  </category>
+  <category>
+    <pattern>I want to go for * days</pattern>
+    <template>
+      <think><set name="duration"><star /></set></think>
+      Great what day are you planning to go?
+    </template>
+  </category>
+  <category>
+    <pattern>I want to go on *</pattern>
+    <template>
+      <think><set name="day"><star /></set></think>
+      Perfect, now that I have all the information, you should wear ...
+    </template>
+  </category>
+
+   <!-- Default category -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+      Sorry, I didn't understand. 
+      I am only here to help you choose clothing based on location and day 
+    </template>
+  </category>
+
+</aiml>
