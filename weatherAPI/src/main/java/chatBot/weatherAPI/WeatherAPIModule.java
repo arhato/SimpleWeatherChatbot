@@ -1,4 +1,4 @@
-package weatherAPI.weatherAPI;
+package chatBot.weatherAPI;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,7 +9,7 @@ import java.net.URL;
 import java.util.Date;
 import java.util.Scanner;
 
-public class weatherAPIModule {
+public class WeatherAPIModule {
 	public static void main(String[] args) {
 		// https://api.openweathermap.org/data/2.5/weather?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric
 
