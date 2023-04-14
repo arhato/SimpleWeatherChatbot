@@ -16,7 +16,7 @@ public class Chatbot {
 	public static void main(String[] args) {
 		try {
 
-			String resourcesP ath = getResourcesPath();
+			String resourcesPath = getResourcesPath();
 			System.out.println(resourcesPath);
 			MagicBooleans.trace_mode = TRACE_MODE;
 			Bot bot = new Bot("super", resourcesPath);
