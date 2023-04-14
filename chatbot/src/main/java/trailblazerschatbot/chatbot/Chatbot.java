@@ -9,7 +9,7 @@ import org.alicebot.ab.MagicBooleans;
 import org.alicebot.ab.MagicStrings;
 import org.alicebot.ab.utils.IOUtils;
 
-public class Chatbot {
+public class Chatbot{
 	private static final boolean TRACE_MODE = false;
 	static String botName = "super";
 

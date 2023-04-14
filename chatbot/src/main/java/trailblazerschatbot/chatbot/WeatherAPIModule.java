@@ -1,4 +1,4 @@
-package chatBot.weatherAPI;
+package trailblazerschatbot.chatbot;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

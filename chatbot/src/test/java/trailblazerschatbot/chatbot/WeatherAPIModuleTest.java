@@ -1,5 +1,4 @@
-package chatBot.weatherAPI;
-
+package trailblazerschatbot.chatbot;
 
 import java.net.URL;
 
@@ -11,6 +10,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+
 
 class WeatherAPIModuleTest {
 
@@ -132,6 +133,4 @@ class WeatherAPIModuleTest {
 	void testGetRecorded() {
 		WeatherAPIModule.getRecorded(0,testList);
 	}
-
-
 }
