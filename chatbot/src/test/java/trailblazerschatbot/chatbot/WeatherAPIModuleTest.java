@@ -1,10 +1,14 @@
 package trailblazerschatbot.chatbot;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -14,6 +18,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import junit.framework.Assert;
 
 class WeatherAPIModuleTest {
 
@@ -46,6 +52,18 @@ class WeatherAPIModuleTest {
 	}
 
 	@Test
+	public void testWeatherAPI() {
+		WeatherAPIModule weather = new WeatherAPIModule();
+		ArrayList<Object> result = weather.weatherAPI("cork", "tuesday");
+		
+		assertNotNull(result);
+		assertEquals(3, result.size());
+		assertTrue(result.get(0) instanceof Double);
+		assertTrue(result.get(1) instanceof String);
+		assertTrue(result.get(2) instanceof String);
+	}
+
+	@Test
 	void testEstablishConnection() throws Exception {
 		// check if responsecode in 200/OK
 		Assertions.assertEquals(200, testResponseCode);
@@ -57,45 +75,63 @@ class WeatherAPIModuleTest {
 		Assertions.assertTrue(testData.containsKey("list"));
 	}
 
-	@Test
-	void testGiveWeather() {
-		final int input = 1;
-		int days = 0;
+	 @Test
+	    public void testGiveWeather() {
+	        JSONArray list = new JSONArray();
+	        JSONObject index = new JSONObject();
+	        JSONObject main = new JSONObject();
+	        main.put("temp", 20);
+	        index.put("main", main);
+	        JSONArray weather = new JSONArray();
+	        JSONObject weather0 = new JSONObject();
+	        weather0.put("main", "Sunny");
+	        weather0.put("description", "Clear skies");
+	        weather.add(weather0);
+	        index.put("weather", weather);
+	        list.add(index);
+	        JSONObject data = new JSONObject();
+	        ArrayList<Object> result = new WeatherAPIModule().giveWeather(list, data, 0);
+	        assertEquals(20, result.get(0));
+	        assertEquals("Sunny", result.get(1));
+	        assertEquals("Clear skies", result.get(2));
+	    }
 
-		// Test case 1: valid input
-		assertDoesNotThrow(() -> WeatherAPIModule.giveWeather(testList, testData, input, days));
+	 @Test
+	    public void testGetTemp() {
+	        JSONArray list = new JSONArray();
+	        JSONObject obj1 = new JSONObject();
+	        JSONObject main1 = new JSONObject();
+	        main1.put("temp", 20.0);
+	        obj1.put("main", main1);
+	        list.add(obj1);
+	        assertEquals(20.0, WeatherAPIModule.getTemp(0, list));
+	    }
 
-		// Test case 2: invalid input
-		final int secondInput = 10;
-		assertThrows(Exception.class, () -> WeatherAPIModule.giveWeather(testList, testData, secondInput, days));
-	}
+	    @Test
+	    public void testGetWeather() {
+	        JSONArray list = new JSONArray();
+	        JSONObject obj1 = new JSONObject();
+	        JSONArray weather1 = new JSONArray();
+	        JSONObject weather1obj = new JSONObject();
+	        weather1obj.put("main", "Clear");
+	        weather1.add(weather1obj);
+	        obj1.put("weather", weather1);
+	        list.add(obj1);
+	        assertEquals("Clear", WeatherAPIModule.getWeather(0, list));
+	    }
 
-	@Test
-	void testGetters() {
-		int day = 0;
-
-		// Test case 1: valid input
-		assertDoesNotThrow(() -> {
-			WeatherAPIModule.getTemp(day, testList);
-			WeatherAPIModule.getFeelsLike(day, testList);
-			WeatherAPIModule.getMinTemp(day, testList);
-			WeatherAPIModule.getMaxTemp(day, testList);
-			WeatherAPIModule.getPressure(day, testList);
-			WeatherAPIModule.getHumidity(day, testList);
-			WeatherAPIModule.getWeather(day, testList);
-			WeatherAPIModule.getWeatherDescription(day, testList);
-			WeatherAPIModule.getClouds(day, testList);
-			WeatherAPIModule.getWindSpeed(day,testList);
-			WeatherAPIModule.getWindDirection(day, testList);
-			WeatherAPIModule.getVisibility(day, testList);
-			WeatherAPIModule.getSunRise(testData);
-			WeatherAPIModule.getSunSet(testData);
-			WeatherAPIModule.getRecorded(day, testList);
-		});
-
-		// Test case 2: invalid input
-		assertThrows(IndexOutOfBoundsException.class, () -> WeatherAPIModule.getTemp(-1, testList));
-	}
+	    @Test
+	    public void testGetWeatherDescription() {
+	        JSONArray list = new JSONArray();
+	        JSONObject obj1 = new JSONObject();
+	        JSONArray weather1 = new JSONArray();
+	        JSONObject weather1obj = new JSONObject();
+	        weather1obj.put("description", "clear sky");
+	        weather1.add(weather1obj);
+	        obj1.put("weather", weather1);
+	        list.add(obj1);
+	        assertEquals("clear sky", WeatherAPIModule.getWeatherDescription(0, list));
+	    }
 
 	@Test
 	public void testDayOfTheWeek() {

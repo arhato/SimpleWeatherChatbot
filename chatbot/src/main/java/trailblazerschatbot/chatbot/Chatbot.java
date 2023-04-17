@@ -52,7 +52,7 @@ public class Chatbot{
 			e.printStackTrace();
 		}
 	}
-
+	
 	private static String getResourcesPath() {
 		File currDir = new File(".");
 		String path = currDir.getAbsolutePath();
@@ -61,5 +61,6 @@ public class Chatbot{
 		String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
 		return resourcesPath;
 	}
+	
 
 }
