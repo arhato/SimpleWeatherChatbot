@@ -16,7 +16,7 @@ public class Chatbot {
 	public static void main(String[] args) {
 		try {
 
-			String resourcesP ath = getResourcesPath();
+			String resourcesPath = getResourcesPath();
 			System.out.println(resourcesPath);
 			MagicBooleans.trace_mode = TRACE_MODE;
 			Bot bot = new Bot("super", resourcesPath);
@@ -41,6 +41,8 @@ public class Chatbot {
 								"STATE=" + request + ":THAT=" + ((History) chatSession.thatHistory.get(0)).get(0)
 										+ ":TOPIC=" + chatSession.predicates.get("topic"));
 					String response = chatSession.multisentenceRespond(request);
+					
+					String destination = chatSession.predicates.get("destination");
 					while (response.contains("&lt;"))
 						response = response.replace("&lt;", "<");
 					while (response.contains("&gt;"))

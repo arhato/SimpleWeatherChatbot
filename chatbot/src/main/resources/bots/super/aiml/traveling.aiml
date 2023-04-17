@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<aiml>
-<category>
+<aiml version="2.0">
+	<!-- insert your AIML categories here-->
+    	<category>
   <pattern>HI</pattern>
   <template><random>
     <li>Hello! How may I help you today?</li>
@@ -12,14 +13,13 @@
     <pattern>I am planning a trip for the next * days</pattern>
     <template>
         <think><set name = "noOfDays"><star/></set></think>
-	      where would you like to go in those days
-    </template>
-  </category>
+	      where would you like to go in those <star/> days
+        </template>
+    </category>
   <category>
-    <pattern>I am planning to go to *</pattern>
-    <pattern>PLAN A TRIP TO *</pattern>
+    <pattern>* go to *</pattern>
     <template>
-      <think><set name="destination"><star /></set></think>
+      <think><set name="destination"><star index="2"/></set></think>
       <set name="duration"> </set>
       <set name="day"></set>
       Great, you want to plan a trip to <get name="destination" />. Would you kindly help with some details?
@@ -27,14 +27,14 @@
     </template>
   </category>
   <category>
-    <pattern>I want to go for * days</pattern>
+    <pattern>* go for * days</pattern>
     <template>
-      <think><set name="duration"><star /></set></think>
+      <think><set name="duration"><star index="2" /></set></think>
       Great what day are you planning to go?
     </template>
   </category>
   <category>
-    <pattern>I want to go on *</pattern>
+    <pattern>* to go on *</pattern>
     <template>
       <think><set name="day"><star /></set></think>
       Perfect, now that I have all the information, you should wear ...
