@@ -6,7 +6,9 @@ import org.json.simple.parser.JSONParser;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.time.DayOfWeek;
 import java.util.Date;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class WeatherAPIModule {
@@ -19,27 +21,22 @@ public class WeatherAPIModule {
 		System.out.println("Enter a city: ");
 		String city = scanner.nextLine();
 		city = city.replaceAll("\\s+ ", "");
-		System.out.println("Enter a country: ");
-		String country = scanner.nextLine();
-		country = country.replaceAll("\\s+ ", "");
 
 		// This part will be implemented on the next version
 		// The user will be able to see the weather for the next 5 days
 
-        System.out.println("Enter which day you want to see the weather for: ");
-        System.out.println("0. Today");
-        System.out.println("1. Tomorrow");
-        System.out.println("2. The day after tomorrow");
-        System.out.println("3. The day after that");
-        System.out.println("4. The day after that and so on...");
-        int days = scanner.nextInt();
+		System.out.println("Enter which day you want to see the weather for: ");
+		System.out.println("You can enter 'today','tommorrow' and so on.");
+		System.out.println("You can enter days of the week too.");
+		String days = scanner.nextLine();
+		int dayNum = dayOfTheWeek(days);
 
 		// This try catch block is used to catch any exceptions that may occur
 		// All the necessary methods are called in this block
 		// User input is also taken in this block in a loop until they decide to exit
 
 		try {
-			URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=" + city + "," + country
+			URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=" + city
 					+ "&appid=0219cd5cd854de517fe7720f70c8da25&units=metric&cnt=" + 10);
 			int responseCode = establishConnection(url);
 
@@ -60,7 +57,7 @@ public class WeatherAPIModule {
 				if (input == 9) {
 					break;
 				}
-				giveWeather(list, data, input,days);
+				giveWeather(list, data, input, dayNum);
 			}
 
 		} catch (Exception e) {
@@ -160,10 +157,12 @@ public class WeatherAPIModule {
 				System.out.println();
 			}
 			case 9 -> System.exit(days);
-
+			
+			default -> throw new IllegalArgumentException("Invalid input");
 			}
+
 		} catch (Exception e) {
-			System.out.println("Invalid input");
+			throw new IllegalArgumentException("Invalid input");
 		}
 	}
 
@@ -260,5 +259,62 @@ public class WeatherAPIModule {
 	public static void getRecorded(int day, JSONArray list) {
 		JSONObject index = (JSONObject) list.get(day);
 		System.out.println("Recorded: " + index.get("dt_txt"));
+	}
+
+	public static int dayOfTheWeek(String d) {
+		if (d != null && d.length() > 0 && Character.isDigit(d.charAt(0))) {
+			// if the input string starts with a digit, assume it's a number and return it
+			// as is
+			return Integer.parseInt(d);
+		} else {
+			// get today's day in int
+			DayOfWeek today = LocalDate.now().getDayOfWeek();
+			// Normalise today to 0
+			int todayValue = today.getValue() % 7;
+
+			DayOfWeek inputDay;
+			// use switch with a lowercase and not whitespaces
+			switch (d.toLowerCase().replaceAll("\\s+ ", "")) {
+			case "today":
+				inputDay = today;
+				break;
+			case "tomorrow":
+				inputDay = today.plus(1);
+				break;
+			case "dayaftertomorrow":
+				inputDay = today.plus(2);
+				break;
+			case "sunday":
+				inputDay = DayOfWeek.SUNDAY;
+				break;
+			case "monday":
+				inputDay = DayOfWeek.MONDAY;
+				break;
+			case "tuesday":
+				inputDay = DayOfWeek.TUESDAY;
+				break;
+			case "wednesday":
+				inputDay = DayOfWeek.WEDNESDAY;
+				break;
+			case "thursday":
+				inputDay = DayOfWeek.THURSDAY;
+				break;
+			case "friday":
+				inputDay = DayOfWeek.FRIDAY;
+				break;
+			case "saturday":
+				inputDay = DayOfWeek.SATURDAY;
+				break;
+			default:
+				throw new IllegalArgumentException("Invalid input: " + d);
+			}
+
+			// normalize the int from the input day
+			int inputDayValue = inputDay.getValue() % 7;
+			// get difference
+			int daysDiff = (inputDayValue + 7 - todayValue) % 7;
+			// return result
+			return daysDiff;
+		}
 	}
 }

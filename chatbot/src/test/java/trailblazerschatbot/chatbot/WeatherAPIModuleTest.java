@@ -1,5 +1,9 @@
 package trailblazerschatbot.chatbot;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import java.net.URL;
 
 import org.json.simple.JSONArray;
@@ -11,16 +15,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
-
 class WeatherAPIModuleTest {
 
-	
 	private URL testUrl;
 	private int testResponseCode;
 	private JSONArray testList = new JSONArray();
 	JSONObject testData = new JSONObject();
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
@@ -33,12 +34,11 @@ class WeatherAPIModuleTest {
 	void setUp() throws Exception {
 		// new url for test
 		testUrl = new URL(
-				"https://api.openweathermap.org/data/2.5/weather?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric");
+				"https://api.openweathermap.org/data/2.5/forecast?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric&cnt=10");
 		// get response code
-		 testResponseCode = WeatherAPIModule.establishConnection(testUrl);
+		testResponseCode = WeatherAPIModule.establishConnection(testUrl);
 		testList = (JSONArray) (WeatherAPIModule.getData(testUrl, testResponseCode).get("list"));
 		testData = WeatherAPIModule.getData(testUrl, testResponseCode);
-		System.out.println(testData);
 	}
 
 	@AfterEach
@@ -47,90 +47,60 @@ class WeatherAPIModuleTest {
 
 	@Test
 	void testEstablishConnection() throws Exception {
-
 		// check if responsecode in 200/OK
 		Assertions.assertEquals(200, testResponseCode);
 	}
 
 	@Test
 	void testGetData() throws Exception {
-		
 		// assert if the data has one of the key
-		Assertions.assertTrue(testData.containsKey("main"));
+		Assertions.assertTrue(testData.containsKey("list"));
 	}
 
 	@Test
-	void testGetTemp() {
-		WeatherAPIModule.getTemp(0,testList);
+	void testGiveWeather() {
+		final int input = 1;
+		int days = 0;
+
+		// Test case 1: valid input
+		assertDoesNotThrow(() -> WeatherAPIModule.giveWeather(testList, testData, input, days));
+
+		// Test case 2: invalid input
+		final int secondInput = 10;
+		assertThrows(Exception.class, () -> WeatherAPIModule.giveWeather(testList, testData, secondInput, days));
 	}
 
 	@Test
-	void testGetFeelsLike() {
-		WeatherAPIModule.getFeelsLike(0,testList);
+	void testGetters() {
+		int day = 0;
+
+		// Test case 1: valid input
+		assertDoesNotThrow(() -> {
+			WeatherAPIModule.getTemp(day, testList);
+			WeatherAPIModule.getFeelsLike(day, testList);
+			WeatherAPIModule.getMinTemp(day, testList);
+			WeatherAPIModule.getMaxTemp(day, testList);
+			WeatherAPIModule.getPressure(day, testList);
+			WeatherAPIModule.getHumidity(day, testList);
+			WeatherAPIModule.getWeather(day, testList);
+			WeatherAPIModule.getWeatherDescription(day, testList);
+			WeatherAPIModule.getClouds(day, testList);
+			WeatherAPIModule.getWindSpeed(day,testList);
+			WeatherAPIModule.getWindDirection(day, testList);
+			WeatherAPIModule.getVisibility(day, testList);
+			WeatherAPIModule.getSunRise(testData);
+			WeatherAPIModule.getSunSet(testData);
+			WeatherAPIModule.getRecorded(day, testList);
+		});
+
+		// Test case 2: invalid input
+		assertThrows(IndexOutOfBoundsException.class, () -> WeatherAPIModule.getTemp(-1, testList));
 	}
 
 	@Test
-	void testGetMinTemp() {
-		WeatherAPIModule.getMinTemp(0,testList);
-	}
-
-	@Test
-	void testGetMaxTemp() {
-		WeatherAPIModule.getMaxTemp(0,testList);
-	}
-
-	@Test
-	void testGetPressure() {
-		WeatherAPIModule.getPressure(0,testList);
-	}
-
-	@Test
-	void testGetHumidity() {
-		WeatherAPIModule.getHumidity(0,testList);
-	}
-
-	@Test
-	void testGetWeather() {
-		WeatherAPIModule.getWeather(0,testList);
-	}
-
-	@Test
-	void testGetWeatherDescription() {
-		WeatherAPIModule.getWeatherDescription(0,testList);
-	}
-
-	@Test
-	void testGetClouds() {
-		WeatherAPIModule.getClouds(0,testList);
-	}
-
-	@Test
-	void testGetWindSpeed() {
-		WeatherAPIModule.getWindSpeed(0,testList);
-	}
-
-	@Test
-	void testGetWindDirection() {
-		WeatherAPIModule.getWindDirection(0,testList);
-	}
-
-	@Test
-	void testGetVisibility() {
-		WeatherAPIModule.getVisibility(0,testList);
-	}
-
-	@Test
-	void testGetSunRise() {
-		WeatherAPIModule.getSunRise(testData);
-	}
-
-	@Test
-	void testGetSunSet() {
-		WeatherAPIModule.getSunSet(testData);
-	}
-
-	@Test
-	void testGetRecorded() {
-		WeatherAPIModule.getRecorded(0,testList);
+	public void testDayOfTheWeek() {
+		assertEquals(0, WeatherAPIModule.dayOfTheWeek("today"));
+		assertEquals(1, WeatherAPIModule.dayOfTheWeek("tomorrow"));
+		assertEquals(2, WeatherAPIModule.dayOfTheWeek("dayaftertomorrow"));
 	}
 }
