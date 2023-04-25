@@ -4,40 +4,53 @@
     	<category>
   <pattern>HI</pattern>
   <template><random>
-    <li>Hello! How may I help you today?</li>
-	  <li>Hello, where are you off to today</li>
-    <li>Hello, there</li>
+    <li>
+    	Hello! I am here to help you plan your trip
+    	How many days would you like me to plan a trip for
+    </li>
   </random></template>
   </category>
   <category>
-    <pattern>I am planning a trip for the next * days</pattern>
+    <pattern>* trip for * days</pattern>
     <template>
-        <think><set name = "noOfDays"><star/></set></think>
-	      where would you like to go in those <star/> days
+        <think><set name = "noOfDays"><star index="2"/></set></think>
+	      Where would you like to go in those <star index="2"/> days
+        </template>
+    </category>
+    <category>
+    <pattern>* trip for * day</pattern>
+    <template>
+        <think><set name = "noOfDays"><star index="2"/></set></think>
+	      where would you like to go that day
         </template>
     </category>
   <category>
     <pattern>* go to *</pattern>
     <template>
       <think><set name="destination"><star index="2"/></set></think>
-      <set name="duration"> </set>
-      <set name="day"></set>
       Great, you want to plan a trip to <get name="destination" />. Would you kindly help with some details?
-      How many days are you planning to go for?
+      What day are you planning to go to <get name="destination" />.
     </template>
   </category>
   <category>
     <pattern>* go for * days</pattern>
     <template>
       <think><set name="duration"><star index="2" /></set></think>
-      Great what day are you planning to go?
+      Are you planning to go somewhere else after?
+    </template>
+  </category>
+  <category>
+    <pattern>* go for * day</pattern>
+    <template>
+      <think><set name="duration"><star index="2" /></set></think>
+      Are you planning to go somewhere else after?
     </template>
   </category>
   <category>
     <pattern>* to go on *</pattern>
     <template>
-      <think><set name="day"><star /></set></think>
-      Perfect, now that I have all the information, you should wear ...
+      <think><set name="day"><star index="2"/></set></think>
+      How many days will you be there
     </template>
   </category>
 
@@ -46,7 +59,7 @@
     <pattern>*</pattern>
     <template>
       Sorry, I didn't understand. 
-      I am only here to help you choose clothing based on location and day 
+        I am only here to help you choose clothing based on location and day 
     </template>
   </category>
 
