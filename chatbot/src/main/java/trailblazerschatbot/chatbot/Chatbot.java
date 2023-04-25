@@ -12,6 +12,11 @@ import org.alicebot.ab.utils.IOUtils;
 public class Chatbot{
 	private static final boolean TRACE_MODE = false;
 	static String botName = "super";
+	static UserData data;
+	static boolean isInitialized = false;
+	static String tempDestination;
+	static int duration;
+	static String initialDay;
 
 	public static void main(String[] args) {
 		try {
@@ -41,6 +46,27 @@ public class Chatbot{
 								"STATE=" + request + ":THAT=" + ((History) chatSession.thatHistory.get(0)).get(0)
 										+ ":TOPIC=" + chatSession.predicates.get("topic"));
 					String response = chatSession.multisentenceRespond(request);
+
+					//User input data
+					if((!(chatSession.predicates.get("noOfDays").equals("unknown"))) && (!isInitialized)) {
+						data = new UserData(Integer.parseInt(chatSession.predicates.get("noOfDays")));
+						isInitialized = true;
+					}
+					if((!(chatSession.predicates.get("destination").equals("unknown"))) && (isInitialized) && (!(chatSession.predicates.get("destination").equals(tempDestination)))) {
+						data.increment();
+						data.addCity(chatSession.predicates.get("destination"));
+						tempDestination = chatSession.predicates.get("destination");
+					}
+					if((!(chatSession.predicates.get("day").equals("unknown")))&& (isInitialized)) {
+						initialDay = chatSession.predicates.get("day");
+					}
+					if((!(chatSession.predicates.get("duration").equals("unknown")))&& (isInitialized)) {
+						duration = Integer.parseInt(chatSession.predicates.get("duration"));
+					}
+					if (duration > 0){
+						data.addDay(initialDay,duration);
+						duration = 0;
+					}
 					while (response.contains("&lt;"))
 						response = response.replace("&lt;", "<");
 					while (response.contains("&gt;"))
