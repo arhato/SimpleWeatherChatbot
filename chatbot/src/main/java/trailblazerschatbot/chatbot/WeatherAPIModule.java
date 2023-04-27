@@ -13,8 +13,13 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class WeatherAPIModule {
+	public static void main(String[] args) {
+		ArrayList<Object> data=new ArrayList<>();
+		data=weatherAPI("cork","thursday");
+		System.out.println(data);
+	}
 	
-	public ArrayList<Object> weatherAPI(String location, String day) {
+	public static ArrayList<Object> weatherAPI(String location, String day) {
 		// https://api.openweathermap.org/data/2.5/weather?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric
 		// remove any whitespce from the location
 		location = location.replaceAll("\\s+ ", "");

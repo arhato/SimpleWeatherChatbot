@@ -53,7 +53,7 @@
       How many days will you be there
     </template>
   </category>
-
+	
    <!-- Default category -->
   <category>
     <pattern>*</pattern>
