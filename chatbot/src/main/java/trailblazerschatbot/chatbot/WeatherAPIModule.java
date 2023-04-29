@@ -14,11 +14,19 @@ import java.util.ArrayList;
 
 public class WeatherAPIModule {
 	public static void main(String[] args) {
-		ArrayList<Object> data=new ArrayList<>();
-		data=weatherAPI("cork","thursday");
-		System.out.println(data);
+		// test
+		ArrayList<Object> data = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the city: ");
+		String city = sc.nextLine();
+		System.out.println("Enter the day: ");
+		String day = sc.nextLine();
+		data = weatherAPI(city, day);
+		System.out.println("Its " + data.get(0) + "\u00B0C outside.");
+		System.out.println("The condition outside is: " + data.get(2));
+		System.out.println(getClothing(data.get(2)));
 	}
-	
+
 	public static ArrayList<Object> weatherAPI(String location, String day) {
 		// https://api.openweathermap.org/data/2.5/weather?q=cork,ie&appid=0219cd5cd854de517fe7720f70c8da25&units=metric
 		// remove any whitespce from the location
@@ -31,7 +39,7 @@ public class WeatherAPIModule {
 
 		// This try catch block is used to catch any exceptions that may occur
 		// All the necessary methods are called in this block
-		// User input is also taken in this block in a loop until they decide to exit
+		// User input is also taken in this block
 
 		try {
 			URL url = new URL("https://api.openweathermap.org/data/2.5/forecast?q=" + location
@@ -40,11 +48,9 @@ public class WeatherAPIModule {
 
 			JSONArray list = (JSONArray) (getData(url, responseCode).get("list"));
 			JSONObject data = getData(url, responseCode);
-			System.out.println("Select what you want to see: ");
+			System.out.println("Weather for that day: ");
 
 			returnArray.addAll(giveWeather(list, data, dayNum));
-			
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,7 +90,6 @@ public class WeatherAPIModule {
 				info.append(sc.nextLine());
 			}
 			sc.close();
-			System.out.println(info);
 
 			JSONParser parse = new JSONParser();
 			Object obj = parse.parse(String.valueOf(info));
@@ -100,14 +105,12 @@ public class WeatherAPIModule {
 	// The method then calls the required method based on the user input
 	// The method also handles any exceptions that may occur
 
-	public static  ArrayList<Object> giveWeather(JSONArray list, JSONObject data, int days) {
-		ArrayList<Object> arr=new ArrayList<>();
+	public static ArrayList<Object> giveWeather(JSONArray list, JSONObject data, int days) {
+		ArrayList<Object> arr = new ArrayList<>();
 		arr.add(getTemp(days, list));
-
 
 		arr.add(getWeather(days, list));
 		arr.add(getWeatherDescription(days, list));
-
 
 		return arr;
 	}
@@ -120,38 +123,8 @@ public class WeatherAPIModule {
 	public static Object getTemp(int day, JSONArray list) {
 		JSONObject index = (JSONObject) list.get(day);
 		JSONObject main = (JSONObject) index.get("main");
-		return  (main.get("temp"));
+		return (main.get("temp"));
 	}
-
-//	public void getFeelsLike(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject main = (JSONObject) index.get("main");
-//		System.out.println("Feels like: " + main.get("feels_like") + " °C");
-//	}
-//
-//	public static void getMinTemp(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject main = (JSONObject) index.get("main");
-//		System.out.println("Min: " + main.get("temp_min") + " °C");
-//	}
-//
-//	public static void getMaxTemp(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject main = (JSONObject) index.get("main");
-//		System.out.println("Max: " + main.get("temp_max") + " °C");
-//	}
-//
-//	public static void getPressure(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject main = (JSONObject) index.get("main");
-//		System.out.println("Pressure: " + main.get("pressure") + " hPa");
-//	}
-//
-//	public static void getHumidity(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject main = (JSONObject) index.get("main");
-//		System.out.println("Humidity: " + main.get("humidity") + " %");
-//	}
 
 	public static Object getWeather(int day, JSONArray list) {
 		JSONObject index = (JSONObject) list.get(day);
@@ -164,48 +137,8 @@ public class WeatherAPIModule {
 		JSONObject index = (JSONObject) list.get(day);
 		JSONArray weather = (JSONArray) index.get("weather");
 		JSONObject weather0 = (JSONObject) weather.get(0);
-		return(weather0.get("description"));
+		return (weather0.get("description"));
 	}
-
-//	public static void getClouds(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject clouds = (JSONObject) index.get("clouds");
-//		System.out.println("Cloud: " + clouds.get("all") + " %");
-//	}
-//
-//	public static void getWindSpeed(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject wind = (JSONObject) index.get("wind");
-//		System.out.println("Wind speed: " + wind.get("speed") + " m/s");
-//	}
-//
-//	public static void getWindDirection(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		JSONObject wind = (JSONObject) index.get("wind");
-//		System.out.println("Wind direction: " + wind.get("deg") + "°");
-//	}
-//
-//	public static void getVisibility(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		System.out.println("Visibility: " + index.get("visibility") + " m");
-//	}
-//
-//	public static void getSunRise(JSONObject data) {
-//		JSONObject city = (JSONObject) data.get("city");
-//		Date date = new Date((long) city.get("sunrise") * 1000);
-//		System.out.println("Sunrise: " + date);
-//	}
-//
-//	public static void getSunSet(JSONObject data) {
-//		JSONObject city = (JSONObject) data.get("city");
-//		Date date = new Date((long) city.get("sunset") * 1000);
-//		System.out.println("Sunset: " + date);
-//	}
-//
-//	public static void getRecorded(int day, JSONArray list) {
-//		JSONObject index = (JSONObject) list.get(day);
-//		System.out.println("Recorded: " + index.get("dt_txt"));
-//	}
 
 	public static int dayOfTheWeek(String d) {
 		if (d != null && d.length() > 0 && Character.isDigit(d.charAt(0))) {
@@ -220,7 +153,7 @@ public class WeatherAPIModule {
 
 			DayOfWeek inputDay;
 			// use switch with a lowercase and not whitespaces
-			switch (d.toLowerCase().replaceAll("\\s+ ", "")) {
+			switch (d.toLowerCase().replaceAll("\\s+", "")) {
 			case "today":
 				inputDay = today;
 				break;
@@ -262,5 +195,88 @@ public class WeatherAPIModule {
 			// return result
 			return daysDiff;
 		}
+	}
+
+	public static String getClothing(Object object) {
+		String clothingRecommendation = "";
+		String weatherCondition = (String) object;
+		switch (weatherCondition) {
+		case "snow":
+		case "shower snow":
+		case "light shower snow":
+		case "heavy shower snow":
+		case "rain and snow":
+		case "light rain and snow":
+		case "heavy snow":
+		case "light snow":
+			clothingRecommendation = "Wear warm and waterproof clothing, boots, gloves, and a hat.";
+			break;
+		case "drizzle":
+		case "shower drizzle":
+		case "heavy shower rain and drizzle":
+		case "shower rain and drizzle":
+		case "heavy intensity drizzle rain":
+		case "drizzle rain":
+		case "light intensity drizzle rain":
+		case "heavy intensity drizzle":
+		case "light intensity drizzle":
+		case "thunderstorm with heavy drizzle":
+		case "thunderstorm with drizzle":
+		case "thunderstorm with light drizzle":
+			clothingRecommendation = "Wear a light waterproof jacket and waterproof shoes.";
+			break;
+		case "thunderstorm":
+		case "ragged thunderstorm":
+		case "heavy thunderstorm":
+		case "light thunderstorm":
+		case "thunderstorm with heavy rain":
+		case "thunderstorm with rain":
+		case "thunderstorm with light rain":
+			clothingRecommendation = "Avoid wearing metal jewelry and seek shelter indoors. If outside, wear waterproof clothing and shoes.";
+			break;
+		case "clear sky":
+			clothingRecommendation = "Wear light clothing, a hat, and sunglasses.";
+			break;
+		case "few clouds":
+		case "scattered clouds":
+		case "broken clouds":
+		case "overcast clouds":
+			clothingRecommendation = "Wear light clothing and bring a light jacket in case it gets cooler.";
+			break;
+		case "shower rain":
+		case "light intensity shower rain":
+		case "heavy intensity shower rain":
+			clothingRecommendation = "Wear a waterproof jacket and shoes.";
+			break;
+		case "freezing rain":
+			clothingRecommendation = "Wear warm and waterproof clothing, boots, gloves, and a hat.";
+			break;
+		case "extreme rain":
+		case "very heavy rain":
+		case "heavy intensity rain":
+		case "moderate rain":
+		case "light rain":
+			clothingRecommendation = "Wear a waterproof jacket and shoes.";
+			break;
+		case "mist":
+		case "fog":
+		case "haze":
+		case "smoke":
+			clothingRecommendation = "Wear light clothing and bring a light jacket in case it gets cooler.";
+			break;
+		case "sand":
+		case "dust":
+		case "sand/dust whirls":
+		case "volcanic ash":
+		case "tornado":
+		case "squalls":
+			clothingRecommendation = "Wear protective clothing such as goggles, a mask, and a hat.";
+			break;
+		default:
+			clothingRecommendation = "Unable to provide a clothing recommendation for this weather condition.";
+			break;
+		}
+
+		return clothingRecommendation;
 	}
 }

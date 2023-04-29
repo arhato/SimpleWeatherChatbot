@@ -52,8 +52,7 @@ class WeatherAPIModuleTest {
 
 	@Test
 	public void testWeatherAPI() {
-		WeatherAPIModule weather = new WeatherAPIModule();
-		ArrayList<Object> result = weather.weatherAPI("cork", "tuesday");
+		ArrayList<Object> result = WeatherAPIModule.weatherAPI("cork", "tuesday");
 		
 		assertNotNull(result);
 		assertEquals(3, result.size());
