@@ -1,8 +1,9 @@
 0,HI,*,*,<random>#Newline    <li>#Newline    	Hello! I am here to help you plan your trip#Newline    	How many days would you like me to plan a trip for#Newline    </li>#Newline  </random>,traveling.aiml
 0,* TRIP FOR * DAYS,*,*,<think><set name="noOfDays"><star index="2"/></set></think>#Newline	      Where would you like to go in those <star index="2"/> days,traveling.aiml
 0,* TRIP FOR * DAY,*,*,<think><set name="noOfDays"><star index="2"/></set></think>#Newline	      where would you like to go that day,traveling.aiml
-0,* GO TO *,*,*,<think><set name="destination"><star index="2"/></set></think>#Newline      Great#Comma you want to plan a trip to <get name="destination"/>. Would you kindly help with some details?#Newline      What day are you planning to go to <get name="destination"/>.,traveling.aiml
+0,* GO TO *,*,*,<think><set name="destination">#Newline      	<star index="2"/></set>#Newline      	<set name="duration">0</set>#Newline      </think>#Newline      Great#Comma you want to plan a trip to <get name="destination"/>. Would you kindly help with some details?#Newline      What day are you planning to go to <get name="destination"/>.,traveling.aiml
 0,* GO FOR * DAYS,*,*,<think><set name="duration"><star index="2"/></set></think>#Newline      Are you planning to go somewhere else after?,traveling.aiml
 0,* GO FOR * DAY,*,*,<think><set name="duration"><star index="2"/></set></think>#Newline      Are you planning to go somewhere else after?,traveling.aiml
 0,* TO GO ON *,*,*,<think><set name="day"><star index="2"/></set></think>#Newline      How many days will you be there,traveling.aiml
+0,NO,*,*,<think>#Newline  			<set name="anymore">no</set>#Newline  			<set name="duration">0</set>#Newline  		</think>#Newline  		Alright,traveling.aiml
 0,*,*,*,Sorry#Comma I didn't understand. #Newline        I am only here to help you choose clothing based on location and day,traveling.aiml

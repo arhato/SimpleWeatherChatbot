@@ -1,0 +1,64 @@
+-------------------------------------------------------------------------------
+Test set: chatBot.weatherAPI.WeatherAPIModuleTest
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 3.931 s <<< FAILURE! - in chatBot.weatherAPI.WeatherAPIModuleTest
+testGetSunRise  Time elapsed: 0.865 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONObject.get(Object)" because "city" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetSunRise(WeatherAPIModuleTest.java:123)
+
+testGetWeatherDescription  Time elapsed: 0.199 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWeatherDescription(WeatherAPIModuleTest.java:98)
+
+testGetVisibility  Time elapsed: 0.178 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetVisibility(WeatherAPIModuleTest.java:118)
+
+testGetTemp  Time elapsed: 0.168 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetTemp(WeatherAPIModuleTest.java:63)
+
+testGetFeelsLike  Time elapsed: 0.18 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetFeelsLike(WeatherAPIModuleTest.java:68)
+
+testGetPressure  Time elapsed: 0.172 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetPressure(WeatherAPIModuleTest.java:83)
+
+testGetRecorded  Time elapsed: 0.183 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetRecorded(WeatherAPIModuleTest.java:133)
+
+testGetWindDirection  Time elapsed: 0.197 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWindDirection(WeatherAPIModuleTest.java:113)
+
+testGetWindSpeed  Time elapsed: 0.179 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWindSpeed(WeatherAPIModuleTest.java:108)
+
+testGetClouds  Time elapsed: 0.169 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetClouds(WeatherAPIModuleTest.java:103)
+
+testGetMaxTemp  Time elapsed: 0.171 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetMaxTemp(WeatherAPIModuleTest.java:78)
+
+testGetMinTemp  Time elapsed: 0.267 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetMinTemp(WeatherAPIModuleTest.java:73)
+
+testGetSunSet  Time elapsed: 0.191 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONObject.get(Object)" because "city" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetSunSet(WeatherAPIModuleTest.java:128)
+
+testGetWeather  Time elapsed: 0.178 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWeather(WeatherAPIModuleTest.java:93)
+
+testGetHumidity  Time elapsed: 0.173 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetHumidity(WeatherAPIModuleTest.java:88)
+

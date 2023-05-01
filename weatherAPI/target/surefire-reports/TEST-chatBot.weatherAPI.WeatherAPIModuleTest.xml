@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="chatBot.weatherAPI.WeatherAPIModuleTest" time="3.931" tests="17" errors="15" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="18"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\LENOVO\git\trailblazerschatbot\weatherAPI\target\test-classes;C:\Users\LENOVO\git\trailblazerschatbot\weatherAPI\target\classes;C:\Users\LENOVO\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\LENOVO\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\LENOVO\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.1\junit-jupiter-params-5.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite\1.9.1\junit-platform-suite-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite-api\1.9.1\junit-platform-suite-api-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite-engine\1.9.1\junit-platform-suite-engine-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.9.1\junit-platform-suite-commons-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.1\junit-platform-launcher-1.9.1.jar;C:\Users\LENOVO\.m2\repository\com\googlecode\json-simple\json-simple\1.1.1\json-simple-1.1.1.jar;C:\Users\LENOVO\.m2\repository\junit\junit\4.10\junit-4.10.jar;C:\Users\LENOVO\.m2\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/London"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="18"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="GB"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-18.0.1.1\bin"/>
+    <property name="sun.java.command" value="C:\Users\LENOVO\AppData\Local\Temp\surefire16307186028206354815\surefirebooter6679561841651889565.jar C:\Users\LENOVO\AppData\Local\Temp\surefire16307186028206354815 2023-04-27T16-50-29_100-jvmRun1 surefire17775656845044853091tmp surefire_018243184118457897076tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\LENOVO\git\trailblazerschatbot\weatherAPI\target\test-classes;C:\Users\LENOVO\git\trailblazerschatbot\weatherAPI\target\classes;C:\Users\LENOVO\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.9.1\junit-jupiter-engine-5.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-engine\1.9.1\junit-platform-engine-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\LENOVO\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.9.1\junit-jupiter-api-5.9.1.jar;C:\Users\LENOVO\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-commons\1.9.1\junit-platform-commons-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.9.1\junit-jupiter-params-5.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite\1.9.1\junit-platform-suite-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite-api\1.9.1\junit-platform-suite-api-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite-engine\1.9.1\junit-platform-suite-engine-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-suite-commons\1.9.1\junit-platform-suite-commons-1.9.1.jar;C:\Users\LENOVO\.m2\repository\org\junit\platform\junit-platform-launcher\1.9.1\junit-platform-launcher-1.9.1.jar;C:\Users\LENOVO\.m2\repository\com\googlecode\json-simple\json-simple\1.1.1\json-simple-1.1.1.jar;C:\Users\LENOVO\.m2\repository\junit\junit\4.10\junit-4.10.jar;C:\Users\LENOVO\.m2\repository\org\hamcrest\hamcrest-core\1.1\hamcrest-core-1.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\LENOVO"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-04-22"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-18.0.1.1"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\LENOVO\git\trailblazerschatbot\weatherAPI"/>
+    <property name="style.color" value="always"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\LENOVO\AppData\Local\Temp\surefire16307186028206354815\surefirebooter6679561841651889565.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="18.0.1.1+2-6"/>
+    <property name="user.name" value="LENOVO"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\LENOVO\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\LENOVO\AppData\Local\Temp\"/>
+    <property name="java.version" value="18.0.1.1"/>
+    <property name="user.dir" value="C:\Users\LENOVO\git\trailblazerschatbot\weatherAPI"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-18.0.1.1\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\dotnet\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\LENOVO\AppData\Local\Microsoft\WindowsApps;;C:\Users\LENOVO\AppData\Local\Programs\Microsoft VS Code\bin;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="18.0.1.1+2-6"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="62.0"/>
+  </properties>
+  <testcase name="testGetSunRise" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.865">
+    <error message="Cannot invoke &quot;org.json.simple.JSONObject.get(Object)&quot; because &quot;city&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONObject.get(Object)" because "city" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetSunRise(WeatherAPIModuleTest.java:123)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetWeatherDescription" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.199">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWeatherDescription(WeatherAPIModuleTest.java:98)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testEstablishConnection" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.206"/>
+  <testcase name="testGetVisibility" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.178">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetVisibility(WeatherAPIModuleTest.java:118)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetData" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.203"/>
+  <testcase name="testGetTemp" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.168">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetTemp(WeatherAPIModuleTest.java:63)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetFeelsLike" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.18">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetFeelsLike(WeatherAPIModuleTest.java:68)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetPressure" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.172">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetPressure(WeatherAPIModuleTest.java:83)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetRecorded" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.183">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetRecorded(WeatherAPIModuleTest.java:133)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetWindDirection" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.197">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWindDirection(WeatherAPIModuleTest.java:113)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetWindSpeed" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.179">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWindSpeed(WeatherAPIModuleTest.java:108)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetClouds" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.169">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetClouds(WeatherAPIModuleTest.java:103)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetMaxTemp" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.171">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetMaxTemp(WeatherAPIModuleTest.java:78)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetMinTemp" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.267">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetMinTemp(WeatherAPIModuleTest.java:73)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetSunSet" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.191">
+    <error message="Cannot invoke &quot;org.json.simple.JSONObject.get(Object)&quot; because &quot;city&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONObject.get(Object)" because "city" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetSunSet(WeatherAPIModuleTest.java:128)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetWeather" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.178">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetWeather(WeatherAPIModuleTest.java:93)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+  <testcase name="testGetHumidity" classname="chatBot.weatherAPI.WeatherAPIModuleTest" time="0.173">
+    <error message="Cannot invoke &quot;org.json.simple.JSONArray.get(int)&quot; because &quot;list&quot; is null" type="java.lang.NullPointerException">java.lang.NullPointerException: Cannot invoke "org.json.simple.JSONArray.get(int)" because "list" is null
+	at chatBot.weatherAPI.WeatherAPIModuleTest.testGetHumidity(WeatherAPIModuleTest.java:88)
+</error>
+    <system-out><![CDATA[{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"id":803,"main":"Clouds","description":"broken clouds","icon":"04d"}],"base":"stations","main":{"temp":11.87,"feels_like":11.38,"temp_min":11.87,"temp_max":11.87,"pressure":1006,"humidity":87},"visibility":10000,"wind":{"speed":5.66,"deg":110},"clouds":{"all":75},"dt":1682609844,"sys":{"type":1,"id":1563,"country":"IE","sunrise":1682572373,"sunset":1682625000},"timezone":3600,"id":2965140,"name":"Cork","cod":200}
+{"visibility":10000,"timezone":3600,"main":{"temp":11.87,"temp_min":11.87,"humidity":87,"pressure":1006,"feels_like":11.38,"temp_max":11.87},"clouds":{"all":75},"sys":{"country":"IE","sunrise":1682572373,"sunset":1682625000,"id":1563,"type":1},"dt":1682609844,"coord":{"lon":-8.4706,"lat":51.898},"weather":[{"icon":"04d","description":"broken clouds","main":"Clouds","id":803}],"name":"Cork","cod":200,"id":2965140,"base":"stations","wind":{"deg":110,"speed":5.66}}
+]]></system-out>
+  </testcase>
+</testsuite>

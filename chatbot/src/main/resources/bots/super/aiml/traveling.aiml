@@ -27,7 +27,10 @@
   <category>
     <pattern>* go to *</pattern>
     <template>
-      <think><set name="destination"><star index="2"/></set></think>
+      <think><set name="destination">
+      	<star index="2"/></set>
+      	<set name="duration">0</set>
+      </think>
       Great, you want to plan a trip to <get name="destination" />. Would you kindly help with some details?
       What day are you planning to go to <get name="destination" />.
     </template>
@@ -52,6 +55,16 @@
       <think><set name="day"><star index="2"/></set></think>
       How many days will you be there
     </template>
+  </category>
+  <category>
+  	<pattern>NO</pattern>
+  	<template>
+  		<think>
+  			<set name="anymore">no</set>
+  			<set name="duration">0</set>
+  		</think>
+  		Alright
+  	</template>
   </category>
 
    <!-- Default category -->

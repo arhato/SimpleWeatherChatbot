@@ -35,7 +35,6 @@ public class WeatherAPIModule {
 
 			JSONArray list = (JSONArray) (getData(url, responseCode).get("list"));
 			JSONObject data = getData(url, responseCode);
-			System.out.println("Select what you want to see: ");
 
 			returnArray.addAll(giveWeather(list, data, dayNum));
 			
@@ -79,8 +78,7 @@ public class WeatherAPIModule {
 				info.append(sc.nextLine());
 			}
 			sc.close();
-			System.out.println(info);
-
+			
 			JSONParser parse = new JSONParser();
 			Object obj = parse.parse(String.valueOf(info));
 			JSONArray data = new JSONArray();

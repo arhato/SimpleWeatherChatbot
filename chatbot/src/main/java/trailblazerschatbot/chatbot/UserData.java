@@ -8,10 +8,13 @@ import java.util.Locale;
 public class UserData {
 	public int count = -1;
     public String[][] location;
+    private WeatherAPIModule apiModule;
+    private ArrayList<ArrayList<Object>> weatherData = new ArrayList<>();
     private ArrayList<String> days = new ArrayList<>(List.of("monday","tuesday","wednesday","thursday","friday","saturday","sunday"));
 
     public UserData(int size) {
         this.location = new String[size][2];
+        apiModule = new WeatherAPIModule();
     }
 
     public void addCity(String input) {
@@ -21,10 +24,20 @@ public class UserData {
         day = day.toLowerCase();
         int index = days.indexOf(day);
         for (int i = 0; i < duration; i++) {
-            location[count+i][0] = location[count+i][0];
+            location[count+i][0] = location[count][0];
             location[count+i][1] = days.get((index+i)%7);
         }
-
+        count = count + duration - 1;
+    }
+    public void getWeather() {
+    	for(int i = 0;i< location.length;i++) {
+    		System.out.println(location[i][0]);
+    		System.out.println(location[i][1]);
+    	}
+        for (int i = 0; i < location.length; i++) {
+            weatherData.add(apiModule.weatherAPI(location[i][0],location[i][1]));
+        }
+        System.out.println(weatherData);
     }
     public void increment(){
         count++;

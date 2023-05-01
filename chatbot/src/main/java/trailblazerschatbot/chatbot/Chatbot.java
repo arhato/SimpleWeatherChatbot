@@ -63,9 +63,15 @@ public class Chatbot{
 					if((!(chatSession.predicates.get("duration").equals("unknown")))&& (isInitialized)) {
 						duration = Integer.parseInt(chatSession.predicates.get("duration"));
 					}
+					System.out.println(duration);
 					if (duration > 0){
+						System.out.println(initialDay + duration);
 						data.addDay(initialDay,duration);
 						duration = 0;
+					}
+					System.out.println(duration);
+					if((!(chatSession.predicates.get("anymore").equals("unknown"))) && (isInitialized)){
+						data.getWeather();
 					}
 					while (response.contains("&lt;"))
 						response = response.replace("&lt;", "<");
@@ -87,6 +93,4 @@ public class Chatbot{
 		String resourcesPath = path + File.separator + "src" + File.separator + "main" + File.separator + "resources";
 		return resourcesPath;
 	}
-	
-
 }
