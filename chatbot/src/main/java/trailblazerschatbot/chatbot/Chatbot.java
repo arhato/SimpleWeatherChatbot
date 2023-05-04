@@ -1,6 +1,7 @@
 package trailblazerschatbot.chatbot;
 
 import java.io.File;
+import java.util.List;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,13 +27,20 @@ public class Chatbot extends JFrame {
 	private JTextField userInputField;
 	private JTextArea chatbotMessages;
 	private JButton sendButton;
+	
+	
+	private int delay=20000;
+	Font font = new Font("Arial", Font.PLAIN, 15);
+	
 
 	public static void main(String[] args) {
+		
 		Chatbot chatBot = new Chatbot();
 		chatBot.setVisible(true);
 	}
 
 	public Chatbot() {
+		
 		try {
 
 			String resourcesPath = getResourcesPath();
@@ -62,6 +70,8 @@ public class Chatbot extends JFrame {
 			setSize(500, 500);
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 			add(chatPanel);
+			chatbotMessages.setFont(font);
+			userInputField.setFont(font);
 
 			// Add action listener to the send button
 			sendButton.addActionListener(new ActionListener() {
@@ -106,16 +116,36 @@ public class Chatbot extends JFrame {
 					}
 					if ((!(chatSession.predicates.get("anymore").equals("unknown"))) && (isInitialized)) {
 						data.getWeather();
-						System.exit(0);
+						
 					}
 					while (response.contains("&lt;"))
 						response = response.replace("&lt;", "<");
 					while (response.contains("&gt;"))
 						response = response.replace("&gt;", ">");
 					chatbotMessages.append("You: " + userInput + "\n");
+					if(!userInput.equalsIgnoreCase("no")) {
 					chatbotMessages.append("Robot : " + response+ "\n");
+					}else {
+						List<String> responses = data.getClothingSuggestion();
+						for (String response1 : responses) {
+						chatbotMessages.append("Robot : " + response1+ "\n");
+						}
+						int delay = 20000; // 3 seconds
+						Timer timer = new Timer(delay, new ActionListener() {
+						    public void actionPerformed(ActionEvent e) {
+						    	chatPanel.setVisible(false);
+						    	chatPanel.getParent().revalidate();
+						    	chatPanel.getParent().repaint();
+						    	System.exit(0);
+						    }
+						});
+						timer.start();
+						
+					}
 					// Clear the user input field
 					userInputField.setText("");
+					chatbotMessages.setLineWrap(true);
+					
 				}
 			}
 			});
