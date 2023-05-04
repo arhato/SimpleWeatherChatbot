@@ -38,26 +38,18 @@ import java.awt.event.*;
 		        sendButton.addActionListener(new ActionListener() {
 		            @Override
 		            public void actionPerformed(ActionEvent e) {
-		                String userInput = userInputField.getText();
+		            	userInput = userInputField.getText();
 		                // Call the chatbot's method to generate a response
 		                String chatbotResponse = ChatBotGUITest.generateResponse(userInput);
 		                // Append the chatbot's response to the chat panel
-		                chatbotMessages.append("You: " + userInput + "\n");
+		                chatbotMessages.append("Human : " + userInput + "\n");
 		                chatbotMessages.append("ChatBot: " + chatbotResponse + "\n");
 		                // Clear the user input field
 		                userInputField.setText("");
 		            }
 		        });
 		    }
-
 		    
-		    public static void main(String[] args) {
-		    	ChatBotGUI chatBot = new ChatBotGUI();
-		        chatBot.setVisible(true);
-		    }
-		    
-		
-
-	}
+}
 
 

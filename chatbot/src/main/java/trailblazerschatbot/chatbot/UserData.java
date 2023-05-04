@@ -30,14 +30,12 @@ public class UserData {
         count = count + duration - 1;
     }
     public void getWeather() {
-    	for(int i = 0;i< location.length;i++) {
-    		System.out.println(location[i][0]);
-    		System.out.println(location[i][1]);
-    	}
         for (int i = 0; i < location.length; i++) {
             weatherData.add(apiModule.weatherAPI(location[i][0],location[i][1]));
         }
-        System.out.println(weatherData);
+        for (int i = 0; i < location.length; i++) {
+            System.out.println("Robot : For your trip to " + location[i][0] + " on " + location[i][1] + " " + apiModule.getClothing(weatherData.get(i).get(2)));
+        }
     }
     public void increment(){
         count++;

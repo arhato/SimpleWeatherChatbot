@@ -67,20 +67,22 @@ public class Chatbot{
 						data.addDay(initialDay,duration);
 						duration = 0;
 					}
-					if((!(chatSession.predicates.get("anymore").equals("unknown"))) && (isInitialized)){
-						data.getWeather();
-					}
 					while (response.contains("&lt;"))
 						response = response.replace("&lt;", "<");
 					while (response.contains("&gt;"))
 						response = response.replace("&gt;", ">");
 					System.out.println("Robot : " + response);
+					if((!(chatSession.predicates.get("anymore").equals("unknown"))) && (isInitialized)){
+						data.getWeather();
+						System.exit(0);
+					}
 				}
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	private static String getResourcesPath() {
 		File currDir = new File(".");
