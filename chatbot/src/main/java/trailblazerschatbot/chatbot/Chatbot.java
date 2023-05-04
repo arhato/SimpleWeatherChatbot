@@ -74,9 +74,10 @@ public class Chatbot extends JFrame {
 			userInputField.setFont(font);
 
 			// Add action listener to the send button
-			sendButton.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
+			userInputField.addActionListener(new ActionListener() {
+			    @Override
+			    public void actionPerformed(ActionEvent e) {
+			        sendButton.doClick();
 					String userInput = userInputField.getText();
 					if ((userInput == null) || (userInput.length() < 1))
 						userInput = MagicStrings.null_input;

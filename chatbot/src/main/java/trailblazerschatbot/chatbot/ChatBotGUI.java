@@ -35,8 +35,8 @@ public class ChatBotGUI extends JFrame {
 		        // Add action listener to the send button
 		        sendButton.addActionListener(new ActionListener() {
 		            @Override
-		            public void actionPerformed(ActionEvent e) {z
-		            	userInput = userInputField.getText();
+		            public void actionPerformed(ActionEvent e) {
+		            	String userInput = userInputField.getText();
 		                // Call the chatbot's method to generate a response
 		                String chatbotResponse = ChatBotGUITest.generateResponse(userInput);
 		                // Append the chatbot's response to the chat panel
