@@ -185,7 +185,7 @@ public class WeatherAPIModule {
 
 	public static String getClothing(Object object) {
 		String clothingRecommendation = "";
-		String weatherCondition = (String) object;
+		String weatherCondition =  object.toString();
 		switch (weatherCondition) {
 		case "snow":
 		case "shower snow":
@@ -195,7 +195,7 @@ public class WeatherAPIModule {
 		case "light rain and snow":
 		case "heavy snow":
 		case "light snow":
-			clothingRecommendation = "Wear warm and waterproof clothing, boots, gloves, and a hat.";
+			clothingRecommendation = "Wear warm and waterproof clothing, boots, gloves, and a hat";
 			break;
 		case "drizzle":
 		case "shower drizzle":
@@ -209,7 +209,7 @@ public class WeatherAPIModule {
 		case "thunderstorm with heavy drizzle":
 		case "thunderstorm with drizzle":
 		case "thunderstorm with light drizzle":
-			clothingRecommendation = "Wear a light waterproof jacket and waterproof shoes.";
+			clothingRecommendation = "Wear a light waterproof jacket and waterproof shoes";
 			break;
 		case "thunderstorm":
 		case "ragged thunderstorm":
@@ -218,37 +218,37 @@ public class WeatherAPIModule {
 		case "thunderstorm with heavy rain":
 		case "thunderstorm with rain":
 		case "thunderstorm with light rain":
-			clothingRecommendation = "Avoid wearing metal jewelry and seek shelter indoors. If outside, wear waterproof clothing and shoes.";
+			clothingRecommendation = "Avoid wearing metal jewelry and seek shelter indoors. If outside, wear waterproof clothing and shoes";
 			break;
 		case "clear sky":
-			clothingRecommendation = "Wear light clothing, a hat, and sunglasses.";
+			clothingRecommendation = "Wear light clothing, a hat, and sunglasses";
 			break;
 		case "few clouds":
 		case "scattered clouds":
 		case "broken clouds":
 		case "overcast clouds":
-			clothingRecommendation = "Wear light clothing and bring a light jacket in case it gets cooler.";
+			clothingRecommendation = "Wear light clothing and bring a light jacket in case it gets cooler";
 			break;
 		case "shower rain":
 		case "light intensity shower rain":
 		case "heavy intensity shower rain":
-			clothingRecommendation = "Wear a waterproof jacket and shoes.";
+			clothingRecommendation = "Wear a waterproof jacket and shoes";
 			break;
 		case "freezing rain":
-			clothingRecommendation = "Wear warm and waterproof clothing, boots, gloves, and a hat.";
+			clothingRecommendation = "Wear warm and waterproof clothing, boots, gloves, and a hat";
 			break;
 		case "extreme rain":
 		case "very heavy rain":
 		case "heavy intensity rain":
 		case "moderate rain":
 		case "light rain":
-			clothingRecommendation = "Wear a waterproof jacket and shoes.";
+			clothingRecommendation = "Wear a waterproof jacket and shoes";
 			break;
 		case "mist":
 		case "fog":
 		case "haze":
 		case "smoke":
-			clothingRecommendation = "Wear light clothing and bring a light jacket in case it gets cooler.";
+			clothingRecommendation = "Wear light clothing and bring a light jacket in case it gets cooler";
 			break;
 		case "sand":
 		case "dust":
@@ -256,10 +256,10 @@ public class WeatherAPIModule {
 		case "volcanic ash":
 		case "tornado":
 		case "squalls":
-			clothingRecommendation = "Wear protective clothing such as goggles, a mask, and a hat.";
+			clothingRecommendation = "Wear protective clothing such as goggles, a mask, and a hat";
 			break;
 		default:
-			clothingRecommendation = "Unable to provide a clothing recommendation for this weather condition.";
+			clothingRecommendation = "Unable to provide a clothing recommendation for this weather condition";
 			break;
 		}
 
