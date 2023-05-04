@@ -9,7 +9,6 @@
 	<artifactId>chatbot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
 	<name>chatbot</name>
 	<!-- FIXME change it to the project's website -->
 	<url>http://www.example.com</url>
@@ -64,16 +63,10 @@
         <artifactId>junit-platform-suite</artifactId>
         <version>${junit.platform.version}</version>
         <scope>test</scope>
-    </dependency>    
-
-		<dependency>
-			<groupId>com.googlecode.json-simple</groupId>
-			<artifactId>json-simple</artifactId>
-			<version>1.1.1</version>
-		</dependency>
+    </dependency>
 
 
-	</dependencies>
+  </dependencies>
 
 	<build>
 		<pluginManagement><!-- lock down plugins versions to avoid using Maven
@@ -125,4 +118,3 @@
 		</pluginManagement>
 	</build>
 </project>
-

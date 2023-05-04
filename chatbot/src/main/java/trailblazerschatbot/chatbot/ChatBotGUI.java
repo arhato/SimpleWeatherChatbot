@@ -4,35 +4,33 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
- public class ChatBotGUI extends JFrame {
-	 
-		    private JPanel chatPanel;
-		    private JTextField userInputField;
-		    private JTextArea chatbotMessages;
-		    private JButton sendButton;
-		    
+public class ChatBotGUI extends JFrame {
 
-		    public ChatBotGUI() {
-		        // Set up the chat panel
-		        chatPanel = new JPanel();
-		        chatPanel.setLayout(new BorderLayout());
-		        chatbotMessages = new JTextArea();
-		        chatbotMessages.setEditable(false);
-		        JScrollPane scrollPane = new JScrollPane(chatbotMessages);
-		        userInputField = new JTextField();
-		        sendButton = new JButton("Send");
-		        chatPanel.add(scrollPane, BorderLayout.CENTER);
-		        JPanel inputPanel = new JPanel(new BorderLayout());
-		        inputPanel.add(userInputField, BorderLayout.CENTER);
-		        inputPanel.add(sendButton, BorderLayout.EAST);
-		        chatPanel.add(inputPanel, BorderLayout.SOUTH);
-		        
+	private JPanel chatPanel;
+	private JTextField userInputField;
+	private JTextArea chatbotMessages;
+	private JButton sendButton;
 
-		        // Set up the main window
-		        setTitle("ChatBot");
-		        setSize(500, 500);
-		        setDefaultCloseOperation(EXIT_ON_CLOSE);
-		        add(chatPanel);
+	public ChatBotGUI() {
+		// Set up the chat panel
+		chatPanel = new JPanel();
+		chatPanel.setLayout(new BorderLayout());
+		chatbotMessages = new JTextArea();
+		chatbotMessages.setEditable(false);
+		JScrollPane scrollPane = new JScrollPane(chatbotMessages);
+		userInputField = new JTextField();
+		sendButton = new JButton("Send");
+		chatPanel.add(scrollPane, BorderLayout.CENTER);
+		JPanel inputPanel = new JPanel(new BorderLayout());
+		inputPanel.add(userInputField, BorderLayout.CENTER);
+		inputPanel.add(sendButton, BorderLayout.EAST);
+		chatPanel.add(inputPanel, BorderLayout.SOUTH);
+
+		// Set up the main window
+		setTitle("ChatBot");
+		setSize(500, 500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add(chatPanel);
 
 		        // Add action listener to the send button
 		        sendButton.addActionListener(new ActionListener() {
@@ -49,7 +47,7 @@ import java.awt.event.*;
 		            }
 		        });
 		    }
-		    
+
 }
 
 
